@@ -4,16 +4,16 @@ pkg_origin=dbhagen-github
 pkg_version=7.3.0
 pkg_maintainer="daniel.b.hagen@gmail.com"
 pkg_license=('Apache-2.0')
-pkg_deps=(core/tomcat8 core/jre8 core/mongo-tools)
+pkg_deps=(core/tomcat8 core/jre8 core/mongo-tools core/haproxy)
 pkg_build_deps=(core/jdk8/8u131 core/maven)
 pkg_svc_user="root"
 pkg_binds=(
   [database]="port"
 )
-#pkg_exports=(
-#  [port]=tomcat_port
-#)
-#pkg_exposes=(port)
+pkg_exports=(
+  [port]=server.port
+)
+pkg_exposes=(port)
 
 do_prepare()
 {
